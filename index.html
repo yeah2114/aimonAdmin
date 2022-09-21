@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>AIMON_admin</title>
+		<link rel="shortcut icon" href="img/icons/AIMON.ico">
+		<link rel="icon" href="img/icons/AIMON.ico">
+		<link rel="stylesheet" href="css/common.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style2.css?ver=0.2"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 		jquery ui -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<script type="text/javascript" src="js/style.js"></script>
+	</head>
+<body>
+
+    <header>
+        <div class="sidebar gray_bg2">
+            <!--header top-->
+            <div class="header-top rightT white_txt fontL font_16 pointer">
+                <img src="img/icons/icon_profile.png" alt="아이콘_계정" class="mr10" style="vertical-align: bottom;">
+                Admin
+                <img src="img/icons/arrow_down.png" alt="화살표_아래" class="ml10" style="margin-left: 7.5px;">
+            </div>
+    
+            <!-- 계정 미니메뉴박스 -->
+            <div class="account_menu">
+                <p><a href="admin_changeUserInfo.html">비밀번호 변경</a></p>
+                <p><a href="signIn.html">로그아웃</a></p>
+            </div>
+    
+            <!--sidebar. nav-->
+            <ul class="nav">
+                <li><a href="index.html">Dashboard</a></li>
+                
+                <li class="dropdown_btn">SAT</li>
+                <div class="dropdown_container">
+                    <a href="sat_passagesList.html">Reading</a>
+                    <a href="#">Writing</a>
+                    <a href="sat_math_addPassage.html">Math</a>
+                </div>
+                
+                <li class="dropdown_btn">ACT</li>
+                <div class="dropdown_container">
+                    <a href="#">Reading</a>
+                    <a href="#">English</a>
+                    <a href="#">Math</a>
+                    <a href="#">Science</a>
+                </div>
+                
+                <li><a href="productList.html">Product</a></li>
+                <li><a href="promotionList.html">Promotion</a></li>
+                <li><a href="paymentList.html">Payment</a></li>
+                <li><a href="masterAccount_list.html">Master Account</a></li>
+                
+                <li class="dropdown_btn">Feedback</li>
+                <div class="dropdown_container">
+                    <a href="feedbackList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn">Member</li>
+                <div class="dropdown_container">
+                    <a href="memberList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn mt15">Admin</li>
+                <div class="dropdown_container">
+                    <a href="adminList.html">List</a>
+                    <a href="admin_create.html">Create</a>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+<script>
+	$(document).ready(function(){
+		$("ul.nav li:nth-child(1)").addClass("nav_on2");
+	});
+</script>
+
+	<section class="container index">
+        <ul class="root">
+			<li>Dashboard</li>
+        </ul>
+		<div class="contents">
+			<!----- 상단 ----->
+			<div class="term_set cf">
+				<div class="floatL">29 June 2021</div>
+				<form class="floatR">
+					기간설정
+					<input type="text" class="datepicker centerT"> ~
+					<input type="text" class="datepicker centerT"> 
+					<button type="button" class="btn blue_btn ml10">Search</button>
+				</form>
+			</div>
+			<!----- 하단 : 그래프 ----->
+			<div class="graph_wrap">
+				<ul class="cf">
+					<li>
+						<p>방문자 수</p>
+						<div>
+							<figure class="highcharts-figure ">
+								<div id="container1" style=""></div>
+								<div class="cf">
+									<div class="floatL">일일<span>110</span></div>
+									<div class="floatR">누적<span>3,110</span></div>
+								</div>
+							</figure>
+						</div>
+					</li>
+					<li>
+						<p>회원가입자 수</p>
+						<div>
+							<figure class="highcharts-figure ">
+								<div id="container2"></div>
+								<div class="cf">
+									<div class="floatL">일일<span>110</span></div>
+									<div class="floatR">누적<span>3,110</span></div>
+								</div>
+							</figure>
+						</div>
+					</li>
+					<li>
+						<p>구매건 수</p>
+						<div>
+							<figure class="highcharts-figure ">
+								<div id="container3"></div>
+								<div class="cf">
+									<div class="floatL">일일<span>110</span></div>
+									<div class="floatR">누적<span>3,110</span></div>
+								</div>
+							</figure>
+						</div>
+					</li>
+					<li>
+						<p>상품별 이용 건 수(구매)</p>
+						<div>
+							<figure class="highcharts-figure ">
+							  <div id="container4"></div>
+							</figure>
+						</div>
+					</li>
+					<li>
+						<p>상품별 이용 건 수(프로모션)</p>
+						<div>
+							<figure class="highcharts-figure ">
+							  <div id="container5"></div>
+							</figure>
+						</div>
+					</li>
+					<li>
+						<p>탈퇴 / 휴면회원 수</p>
+						<div>
+							<figure class="highcharts-figure ">
+							  <div id="container6"></div>
+							</figure>
+						</div>
+					</li>
+					<li class="circle">
+						<p>총 체류시간 (1회 방문 시)</p>
+						<div>
+							<figure class="highcharts-figure ">
+							  <div id="container7"></div>
+							</figure>
+						</div>
+					</li>
+
+					<li>
+						<p>페이지 별 체류시간 (1회 접속 시 방문 페이지 수)</p>
+						<div class="table_wrap">
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+<!-- 		하이차트 -->
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/series-label.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+	$(document).ready(function(){
+
+		/* 방문자수 차트 */
+		Highcharts.chart('container1', {
+
+			title: {
+				text: ''
+			},
+
+			yAxis: {
+				title: {
+				  text: ''
+				}
+			},
+
+			xAxis: {
+				accessibility: {
+					rangeDescription: 'Range: 2010 to 2017',
+				}
+			},
+
+			legend: {
+				symbolRadius: 10,
+				symbolHeight: 2,
+				symbolWidth: 56,
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				itemStyle: {
+					fontSize:13
+				}
+			},
+
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					pointStart: 2010,
+					marker: {
+						enabled: false
+					}
+				}
+			},
+
+			series: [{
+				name: 'Combo',
+				data: [4.3, 2.6,3.6 ,4.5]
+			}, {
+				name: 'SAT',
+				data: [2, 2, 3, 5]
+			}, {
+				name: 'ACT',
+				data: [2.2, 4.2, 1.8, 2.8]
+			}],
+			colors: ['#5B9BD5', '#A5A5A5', '#ED7D31'],
+
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+						  layout: 'horizontal',
+						  align: 'center',
+						  verticalAlign: 'bottom'
+						}
+					}
+				}]
+			},
+
+			legend: {
+				enabled: false,
+			}
+
+		});
+
+		
+		/* 회원가입자수 차트 */
+		Highcharts.chart('container2', {
+
+			title: {
+				text: ''
+			},
+
+			yAxis: {
+				title: {
+				  text: ''
+				}
+			},
+
+			xAxis: {
+				accessibility: {
+					rangeDescription: 'Range: 2010 to 2017',
+				}
+			},
+
+			legend: {
+				symbolRadius: 10,
+				symbolHeight: 2,
+				symbolWidth: 56,
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				itemStyle: {
+					fontSize:13
+				}
+			},
+
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					pointStart: 2010,
+					marker: {
+						enabled: false
+					}
+				}
+			},
+
+			series: [{
+				name: 'Combo',
+				data: [4.3, 2.6,3.6 ,4.5]
+			}, {
+				name: 'SAT',
+				data: [2, 2, 3, 5]
+			}, {
+				name: 'ACT',
+				data: [2.2, 4.2, 1.8, 2.8]
+			}],
+			colors: ['#5B9BD5', '#A5A5A5', '#ED7D31'],
+
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+						  layout: 'horizontal',
+						  align: 'center',
+						  verticalAlign: 'bottom'
+						}
+					}
+				}]
+			},
+
+			legend: {
+				enabled: false,
+			}
+
+		});
+
+		
+		/* 구매건수 차트 */
+		Highcharts.chart('container3', {
+
+			title: {
+				text: ''
+			},
+
+			yAxis: {
+				title: {
+				  text: ''
+				}
+			},
+
+			xAxis: {
+				accessibility: {
+					rangeDescription: 'Range: 2010 to 2017',
+				}
+			},
+
+			legend: {
+				symbolRadius: 10,
+				symbolHeight: 2,
+				symbolWidth: 56,
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				itemStyle: {
+					fontSize:13
+				}
+			},
+
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					pointStart: 2010,
+					marker: {
+						enabled: false
+					}
+				}
+			},
+
+			series: [{
+				name: 'Combo',
+				data: [4.3, 2.6,3.6 ,4.5]
+			}, {
+				name: 'SAT',
+				data: [2, 2, 3, 5]
+			}, {
+				name: 'ACT',
+				data: [2.2, 4.2, 1.8, 2.8]
+			}],
+			colors: ['#5B9BD5', '#A5A5A5', '#ED7D31'],
+
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+						  layout: 'horizontal',
+						  align: 'center',
+						  verticalAlign: 'bottom'
+						}
+					}
+				}]
+			},
+
+			legend: {
+				enabled: false,
+			}
+
+		});
+
+		
+		/* 상품별 이용건수(구매) 차트 */
+		Highcharts.chart('container4', {
+
+			title: {
+				text: ''
+			},
+
+			yAxis: {
+				title: {
+				  text: ''
+				}
+			},
+
+			xAxis: {
+				accessibility: {
+					rangeDescription: 'Range: 2010 to 2017',
+				}
+			},
+
+			legend: {
+				symbolRadius: 10,
+				symbolHeight: 2,
+				symbolWidth: 56,
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				itemStyle: {
+					fontSize:13
+				}
+			},
+
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					pointStart: 2010,
+					marker: {
+						enabled: false
+					}
+				}
+			},
+
+			series: [{
+				name: 'Combo',
+				data: [4.3, 2.6,3.6 ,4.5]
+			}, {
+				name: 'SAT',
+				data: [2, 2, 3, 5]
+			}, {
+				name: 'ACT',
+				data: [2.2, 4.2, 1.8, 2.8]
+			}],
+			colors: ['#5B9BD5', '#A5A5A5', '#ED7D31'],
+
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+						  layout: 'horizontal',
+						  align: 'center',
+						  verticalAlign: 'bottom'
+						}
+					}
+				}]
+			}
+
+		});
+
+		
+		/* 상품별 이용건수(프로모션) 차트 */
+		Highcharts.chart('container5', {
+
+			title: {
+				text: ''
+			},
+
+			yAxis: {
+				title: {
+				  text: ''
+				}
+			},
+
+			xAxis: {
+				accessibility: {
+					rangeDescription: 'Range: 2010 to 2017',
+				}
+			},
+
+			legend: {
+				symbolRadius: 10,
+				symbolHeight: 2,
+				symbolWidth: 56,
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				itemStyle: {
+					fontSize:13
+				}
+			},
+
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					pointStart: 2010,
+					marker: {
+						enabled: false
+					}
+				}
+			},
+
+			series: [{
+				name: 'Combo',
+				data: [4.3, 2.6,3.6 ,4.5]
+			}, {
+				name: 'SAT',
+				data: [2, 2, 3, 5]
+			}, {
+				name: 'ACT',
+				data: [2.2, 4.2, 1.8, 2.8]
+			}],
+			colors: ['#5B9BD5', '#A5A5A5', '#ED7D31'],
+
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+						  layout: 'horizontal',
+						  align: 'center',
+						  verticalAlign: 'bottom'
+						}
+					}
+				}]
+			}
+
+		});
+
+		
+		/* 탈퇴/휴면회원 수 차트 */
+		Highcharts.chart('container6', {
+
+			title: {
+				text: ''
+			},
+
+			yAxis: {
+				title: {
+				  text: ''
+				}
+			},
+
+			xAxis: {
+				accessibility: {
+					rangeDescription: '',
+				}
+			},
+
+			legend: {
+				symbolRadius: 10,
+				symbolHeight: 2,
+				symbolWidth: 56,
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				itemStyle: {
+					fontSize:13
+				}
+			},
+
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					marker: {
+						enabled: false
+					}
+				}
+			},
+
+			series: [{
+				name: 'Combo',
+				data: [4.3, 2.6,3.6 ,4.5]
+			}, {
+				name: 'SAT',
+				data: [2, 2, 3, 5]
+			}, {
+				name: 'ACT',
+				data: [2.2, 4.2, 1.8, 2.8]
+			}],
+			colors: ['#5B9BD5', '#A5A5A5', '#ED7D31'],
+
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+						  layout: 'horizontal',
+						  align: 'center',
+						  verticalAlign: 'bottom'
+						}
+					}
+				}]
+			}
+
+		});
+
+		/*원형 그래프*/
+		Highcharts.chart('container7', {
+			colors: ['#5B9BD5', '#ED7D31', '#A5A5A5', '#FFC000'],
+
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				type: 'pie'
+			},
+
+			xAxis: {
+				labels: {
+					style: {
+						color: 'red'
+					}
+				}
+			},
+
+			title: {
+				text: ''
+			},
+
+			legend: {
+				symbolRadius: 0,
+				symbolHeight: 5,
+				symbolWidth: 5,
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle',
+				itemStyle: {
+					fontSize:14,
+				}
+			},
+
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+
+			accessibility: {
+				point: {
+				  valueSuffix: '%'
+				}
+			},
+
+			plotOptions: {
+				pie: {
+				  allowPointSelect: true,
+				  cursor: 'pointer',
+				  dataLabels: {
+					enabled: false,
+				  },
+				  showInLegend: true
+				}
+			},
+
+			series: [{
+				name: 'Brands',
+				colorByPoint: true,
+				data:[{
+					name: '6시간',
+					y: 60,
+					},
+					{
+					name: '3시간',
+					y: 20
+					}, 
+					{
+					name: '1시간',
+					y: 15
+					}, 
+					{
+					name: '30분',
+					y: 5
+				}]
+			}]
+		});
+	});
+</script>
+    
+</body>
+</html>

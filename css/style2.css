@@ -1,0 +1,445 @@
+/*이동경로*/
+.root:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.root li {
+  position: relative;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 60px;
+  float: left;
+  color: #33445b;
+}
+.root li:first-child {
+  margin-left: 0;
+}
+.root li:after {
+  content: ">";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translate(50%, -50%);
+}
+.root li:nth-child(3):after {
+  content: "-";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translate(50%, -50%);
+}
+.root li:last-child:after {
+  display: none;
+}
+
+/*팝업*/
+.pop_wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  /* display: none; */
+  transform: translateX(100%);
+  /* transition: 0.5s; */
+}
+.pop_wrap.on {
+  /* display: block; */
+  transform: translateX(0);
+}
+.pop_bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.pop_cont {
+  width: 1057px;
+  height: calc(100% - 57px);
+  background-color: #fff;
+  position: absolute;
+  top: 58px;
+  right: 0;
+  transform: translateX(100%);
+  transition: 0.5s;
+}
+.pop_wrap.on .pop_cont {
+  transform: translateX(0);
+}
+.pop_top {
+  padding: 20px;
+  border-bottom: 1px solid #707070;
+}
+.pop_top h1 {
+  font-size: 18px;
+  font-weight: normal;
+}
+.pop_contents {
+  height: calc(100% - 154px);
+  padding: 53px 55px;
+}
+.description .pop_contents {
+  line-height: 30px;
+}
+/*.pop_contents.borderB {border-bottom:1px solid #E5E5E5;}*/
+.btn_wrap {
+  padding-bottom: 40px;
+}
+.btn_wrap button {
+  margin-left: 10px;
+}
+
+/*회원정보팝업*/
+.member_info label label {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 10px;
+}
+.member_info label:first-child,
+.admin_info label:first-child {
+  margin-top: 0;
+}
+.pop_wrap input {
+  border: none;
+  height: 35px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.btn_pwReset {
+  width: calc(100% - 160px);
+  padding: 15px 20px;
+  background-color: #fc5757;
+  color: #fff;
+}
+
+/*메인*/
+.contents {
+  margin-top: 50px;
+  padding-left: 10px;
+}
+.term_set {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #b1b1b1;
+}
+.term_set > div {
+  font-size: 18px;
+  font-weight: bold;
+}
+.term_set input {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #b1b1b1;
+}
+.term_set input:first-child {
+  margin-left: 10px;
+}
+.term_set button {
+  height: 30px;
+  padding: 0 36px;
+}
+.term_set input,
+.term_set button {
+  vertical-align: middle;
+}
+
+/*꺽은선 그래프*/
+.highcharts-figure,
+.highcharts-data-table table {
+  margin-top: 10px;
+  border: 1px solid #b1b1b1;
+  padding: 30px 20px 0 20px;
+}
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+.highcharts-series-group path {
+  stroke-width: 8;
+}
+.highcharts-credits,
+.highcharts-axis-labels.highcharts-xaxis-labels,
+.highcharts-tick {
+  display: none;
+}
+.highcharts-no-tooltip path {
+  margin-right: 8px;
+}
+
+/*원형 그래프*/
+.circle .highcharts-figure,
+.circle .highcharts-data-table table {
+  min-width: 320px;
+  max-width: 660px;
+  margin: 1em auto;
+  padding: 0;
+}
+.circle .highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.circle .highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.circle .highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.circle .highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+.circle .highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.circle .highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
+/*그래프 레이아웃*/
+.graph_wrap {
+  margin-top: 30px;
+}
+.highcharts-figure > div:nth-child(1) {
+  height: 246px;
+}
+.highcharts-figure > div:nth-child(2) {
+  margin: 0 41px 11px 51px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.highcharts-figure > div:nth-child(2) span {
+  font-size: 20px;
+  font-weight: 400;
+  color: #2393f2;
+  margin-left: 6px;
+}
+.circle .highcharts-figure > div {
+  height: 250px;
+}
+.graph_wrap li {
+  float: left;
+  margin-left: 10px;
+  width: calc(33.33% - 7px);
+  margin-top: 26px;
+}
+.graph_wrap li:nth-child(-n + 3) {
+  margin-top: 0;
+}
+.graph_wrap li:nth-child(3n + 1) {
+  margin-left: 0;
+}
+.graph_wrap li:last-child {
+  width: calc(66.66% - 3px);
+}
+.table_wrap {
+  margin-top: 15px;
+  border: 1px solid #b1b1b1;
+  padding: 20px 10px;
+}
+.table_wrap table {
+  border: none;
+}
+.table_wrap table th {
+  background-color: #e5e5e5;
+}
+.table_wrap table th,
+.table_wrap table td {
+  height: 35px;
+  border-color: #b1b1b1;
+}
+
+/*프로덕트리스트*/
+.top_box .root li {
+  line-height: 45px;
+}
+.center_table th,
+.center_table td {
+  text-align: center;
+  font-weight: 400;
+}
+.center_table th {
+  font-weight: 500;
+}
+
+/*프로덕트 상세*/
+/*0721 이정희수정*/
+.form_area li {
+  float: left;
+  width: 50%;
+  margin-bottom: 20px;
+}
+.form_area li.w100 {
+  width: 100%;
+}
+/*0721 이정희수정*/
+.form_area li label {
+  display: inline-block;
+  width: 160px;
+  font-size: 15px;
+  font-weight: 500;
+  float: left;
+  line-height: 50px;
+  text-align: right;
+  padding-right: 20px;
+}
+.form_area li label.userRight {
+  width: 125px;
+  text-align: left;
+}
+/*0719 이정희수정*/
+.product_manage .form_area li:nth-child(even) label {
+  padding-left: 50px;
+}
+/*0721 이정희수정*/
+.form_area li input {
+  width: calc(100% - 160px);
+  border: 1px solid #b1b1b1;
+  float: left;
+  height: 50px;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+/*0721 이정희수정*/
+.form_area li select {
+  width: calc(100% - 160px);
+  border: 1px solid #b1b1b1;
+  float: left;
+  height: 50px;
+  padding: 14px 20px;
+  background: url(../img/icons/arrow_down_b.png) right 10px center no-repeat;
+  background-color: #fff;
+}
+.form_area li.create_date input,
+.form_area li.create_date label {
+  width: auto;
+}
+.form_area li.create_date input {
+  border: none;
+  padding: 0;
+  margin-left: 60px;
+}
+/*0721 이정희수정*/
+.form_area li textarea {
+  width: calc(100% - 160px);
+  height: 300px;
+  border: 1px solid #b1b1b1;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+.form_area + div button {
+  margin-left: 10px;
+}
+.form_area + div button:first-child {
+  margin-left: 0;
+}
+
+/*멤버 리스트*/
+th:last-child.centerT,
+td:last-child.centerT {
+  text-align: center;
+}
+.member_info .red_bg {
+  color: #fff;
+  margin-top: 30px;
+}
+
+/*프로모션 리스트*/
+.listCount + .btn {
+  margin-left: 20px;
+}
+.form_area.promotion {
+  margin-bottom: 80px;
+}
+.form_area.promotion li label {
+  width: 150px;
+  font-size: 16px;
+  line-height: 50px;
+}
+.form_area.promotion li:nth-child(even) label {
+  padding-left: 30px;
+}
+
+/*관리자 리스트*/
+.admin_search {
+  position: relative;
+  margin-bottom: 50px;
+}
+.admin_search input {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  border: 1px solid #b1b1b1;
+}
+.admin_search button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 30px;
+}
+.admin_search button img {
+  width: 100%;
+}
+.authority button {
+  padding: 6px 15px;
+  width: 50px;
+}
+.authority_div {
+  margin-top: 10px;
+}
+.authority_div p {
+  width: auto;
+  float: left;
+  margin-right: 30px;
+}
+.authority_div label {
+  border: none;
+  display: inline-block;
+  width: auto;
+  float: left;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.admin_info input[type="button"] {
+  background-color: #ffa742;
+  margin-top: 5px;
+}

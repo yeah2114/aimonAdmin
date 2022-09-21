@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>AIMON_admin</title>
+		<link rel="shortcut icon" href="img/icons/AIMON.ico">
+		<link rel="icon" href="img/icons/AIMON.ico">
+		<link rel="stylesheet" href="css/common.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style2.css?ver=0.2"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 		jquery ui -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<script type="text/javascript" src="js/style.js"></script>
+	</head>
+<body>
+
+    <header>
+        <div class="sidebar gray_bg2">
+            <!--header top-->
+            <div class="header-top rightT white_txt fontL font_16 pointer">
+                <img src="img/icons/icon_profile.png" alt="아이콘_계정" class="mr10" style="vertical-align: bottom;">
+                Admin
+                <img src="img/icons/arrow_down.png" alt="화살표_아래" class="ml10" style="margin-left: 7.5px;">
+            </div>
+    
+            <!-- 계정 미니메뉴박스 -->
+            <div class="account_menu">
+                <p><a href="admin_changeUserInfo.html">비밀번호 변경</a></p>
+                <p><a href="signIn.html">로그아웃</a></p>
+            </div>
+    
+            <!--sidebar. nav-->
+            <ul class="nav">
+                <li><a href="index.html">Dashboard</a></li>
+                
+                <li class="dropdown_btn">SAT</li>
+                <div class="dropdown_container">
+                    <a href="sat_passagesList.html">Reading</a>
+                    <a href="#">Writing</a>
+                    <a href="sat_math_addPassage.html">Math</a>
+                </div>
+                
+                <li class="dropdown_btn">ACT</li>
+                <div class="dropdown_container">
+                    <a href="#">Reading</a>
+                    <a href="#">English</a>
+                    <a href="#">Math</a>
+                    <a href="#">Science</a>
+                </div>
+                
+                <li><a href="productList.html">Product</a></li>
+                <li><a href="promotionList.html">Promotion</a></li>
+                <li><a href="paymentList.html">Payment</a></li>
+                <li><a href="masterAccount_list.html">Master Account</a></li>
+                
+                <li class="dropdown_btn">Feedback</li>
+                <div class="dropdown_container">
+                    <a href="feedbackList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn">Member</li>
+                <div class="dropdown_container">
+                    <a href="memberList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn mt15">Admin</li>
+                <div class="dropdown_container">
+                    <a href="adminList.html">List</a>
+                    <a href="admin_create.html">Create</a>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <script>
+        $(document).ready(function(){
+            $("ul.nav li:nth-child(7)").addClass("nav_on2");
+        });
+    </script>
+    
+        <section class="container">
+            <ul class="root">
+                <li>Promotion Management</li>
+            </ul>
+            <form class="form_style mt30">
+                <!----- form ----->
+                <ul class="form_area cf">
+                    <li>
+                        <label for="product">Product<span class="orange_txt"> *</span></label>
+                        <select>
+                            <option value="sample1">Combo - 30days</option>
+                            <option value="sample2">Combo - 30days</option>
+                            <option value="sample3">Combo - 30days</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="people" class="pl50">People<span class="orange_txt"> *</span></label>
+                        <input type="text" id="people" value="30">
+                    </li>
+                    <!--
+                    <li class="w100">
+                        <label for="period">Period<span class="orange_txt"> *</span></label>
+                        <input type="text" id="period" value="2021-06-25">
+                    </li>
+                    -->
+                    <li class="w100 label_double ">
+                        <label for="dateStart1" class="pl50">Period <span class="orange_txt">*</span></label>
+                        <input type="text" id="dateStart1" class="datepicker centerT">
+                        <label for="dateEnd3" class="txt_range">~</label>
+                        <input type="text" id="dateEnd3" class="datepicker centerT">
+                    </li>
+                    <li class="w100 school_select">
+                        <label for="school" class="input_period">School</label>
+                        <select class="w100 school_option">
+                            <option value="op">Gunha School</option>
+                            <option value="op">Gunha School</option>
+                            <option value="op">Gunha School</option>
+                        </select>
+                    </li>
+                    <li class="w100">
+                        <label>Memo</label>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </li>
+                </ul>
+                <!----- btn ----->
+                <div class="centerT mt20">
+                    <!----- ver 1. 수정할때 ----->
+                    <button type="button" class="btn2 blue_btn2">Delete</button>
+                    <button type="button" class="btn2 gray_btn2">Cancel</button>
+                    <button type="button" class="btn6 blue_btn">Registration</button>
+                    <!----- ver 2. 신규생성할때 ----->
+                    <!--
+                    <button type="button" class="btn2 gray_btn2">Cancel</button>
+                    <button type="button" class="btn6 blue_btn">Registration</button>
+                    -->
+                </div>
+            </form>
+    
+        </section>
+    
+</body>
+</html>

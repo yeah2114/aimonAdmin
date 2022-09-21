@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>AIMON_admin</title>
+		<link rel="shortcut icon" href="img/icons/AIMON.ico">
+		<link rel="icon" href="img/icons/AIMON.ico">
+		<link rel="stylesheet" href="css/common.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style2.css?ver=0.2"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 		jquery ui -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<script type="text/javascript" src="js/style.js"></script>
+	</head>
+<body>
+
+    <header>
+        <div class="sidebar gray_bg2">
+            <!--header top-->
+            <div class="header-top rightT white_txt fontL font_16 pointer">
+                <img src="img/icons/icon_profile.png" alt="아이콘_계정" class="mr10" style="vertical-align: bottom;">
+                Admin
+                <img src="img/icons/arrow_down.png" alt="화살표_아래" class="ml10" style="margin-left: 7.5px;">
+            </div>
+    
+            <!-- 계정 미니메뉴박스 -->
+            <div class="account_menu">
+                <p><a href="admin_changeUserInfo.html">비밀번호 변경</a></p>
+                <p><a href="signIn.html">로그아웃</a></p>
+            </div>
+    
+            <!--sidebar. nav-->
+            <ul class="nav">
+                <li><a href="index.html">Dashboard</a></li>
+                
+                <li class="dropdown_btn">SAT</li>
+                <div class="dropdown_container">
+                    <a href="sat_passagesList.html">Reading</a>
+                    <a href="#">Writing</a>
+                    <a href="sat_math_addPassage.html">Math</a>
+                </div>
+                
+                <li class="dropdown_btn">ACT</li>
+                <div class="dropdown_container">
+                    <a href="#">Reading</a>
+                    <a href="#">English</a>
+                    <a href="#">Math</a>
+                    <a href="#">Science</a>
+                </div>
+                
+                <li><a href="productList.html">Product</a></li>
+                <li><a href="promotionList.html">Promotion</a></li>
+                <li><a href="paymentList.html">Payment</a></li>
+                <li><a href="masterAccount_list.html">Master Account</a></li>
+                
+                <li class="dropdown_btn">Feedback</li>
+                <div class="dropdown_container">
+                    <a href="feedbackList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn">Member</li>
+                <div class="dropdown_container">
+                    <a href="memberList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn mt15">Admin</li>
+                <div class="dropdown_container">
+                    <a href="adminList.html">List</a>
+                    <a href="admin_create.html">Create</a>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <script>
+        $(document).ready(function(){
+            $("ul.nav li:nth-child(2)").addClass("nav_on");
+            $("ul.nav li:nth-child(2)").next(".dropdown_container").addClass("subnav_on");
+            $("ul.nav li:nth-child(2)").next(".dropdown_container").find("a:nth-child(1)").addClass("subnav_on2");
+        });
+    </script>
+    
+    <section class="container sat_addPassage">
+        <!----- ROOT ----->
+        <ul class="root">
+            <li>SAT</li>
+            <li>Reading</li>
+            <li>Add Passage</li>
+            <li>NORMAL MODE</li>
+        </ul>
+    
+        <div class="contents">
+            <!----- 최상단 : Btn wrap ----->
+            <div class="btn_wrap cf">
+                <a href="./sat_addPassage_pdfMode.html" class="btn4 blue_btn2">PDF Mode</a>
+                <div class="floatR">
+                    <a href="#" class="btn2 gray_btn mr10">Delete</a>
+                    <a href="#" class="btn2 blue_btn">Preview</a>
+                </div>
+            </div>
+    
+            <!----- 본문 ----->
+            <article class="cf">
+                <!-- 1 : Question ID -->
+                <p class="input_title mb10">Question ID</p>
+                <form class="input_cont mb20">
+                    <label for="question_id">
+                        <input type="text" id="question_id">
+                    </label>
+                </form>
+                <!-- 2 : Title-->
+                <p class="input_title mb10">Title<span class="orange_txt"> *</span></p>
+                <form class="input_cont mb20">
+                    <label for="passage_title">
+                        <input type="text" id="passage_title">
+                    </label>
+                </form>
+                <!-- 3 : Direction -->
+                <p class="input_title mb10">Direction<span class="orange_txt"> *</span></p>
+                <form class="input_cont mb20">
+                    <label for="passage_direction">
+                        <input type="text" id="passage_direction">
+                    </label>
+                </form>
+                <!-- 4 : Blurb -->
+                <p class="input_title mb10">Blurb</p>
+                <form class="input_cont mb20">
+                    <label for="passage_blurb">
+                        <input type="text" id="passage_blurb">
+                    </label>
+                </form>
+                <!-- 5 L -- -------------------------------------->
+                <div class="floatL contL">
+                    <!-- title -->
+                    <p class="input_title mb15">Passage<span class="orange_txt"> *</span></p>
+                    <!-- contents -->
+                    <div class="newPassage_box mb30">
+                        <form>
+                            <label for="newP_content">
+                                <textarea id="newP_content" name="newP_content"></textarea>
+                            </label>
+                        </form>
+                    </div>
+                    <!-- title -->
+                    <p class="input_title mb15">Theme<span class="orange_txt"> *</span></p>
+                    <!-- contents -->
+                    <ul>
+                        <!-- 1 -->
+                        <li class="mb20">
+                            <div class="mainIdea cf">
+                                <img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Information Ideas
+                                <div class="checkBox floatR">                                                            
+                                    <input id="theme1" type="checkbox">
+                                    <label for="theme1" class="themeCheck"></label>
+                                </div>
+                            </div>
+                            <div class="subIdea">
+                                <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Main Ideas
+                                    <div class="checkBox floatR">                                                            
+                                        <input id="theme2" type="checkbox">
+                                        <label for="theme2" class="themeCheck"></label>
+                                    </div>
+                                </div>
+                                <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Words in Context
+                                    <div class="checkBox floatR">                                                            
+                                        <input id="theme3" type="checkbox">
+                                        <label for="theme3" class="themeCheck"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 2 -->
+                        <li>
+                            <div class="mainIdea">
+                                <img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Information Ideas
+                                <div class="checkBox floatR">                                                            
+                                    <input id="theme4" type="checkbox">
+                                    <label for="theme4" class="themeCheck"></label>
+                                </div>
+                            </div>
+                            <div class="subIdea">
+                                <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Main Ideas
+                                    <div class="checkBox floatR">                                                            
+                                        <input id="theme5" type="checkbox">
+                                        <label for="theme5" class="themeCheck"></label>
+                                    </div></div>
+                                <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Words in Context
+                                    <div class="checkBox floatR">                                                            
+                                        <input id="theme6" type="checkbox">
+                                        <label for="theme6" class="themeCheck"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 3 -->
+                        <li>
+                            <div class="mainIdea">
+                                <img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Information Ideas
+                            </div>
+                            <div class="subIdea">
+                                <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Main Ideas</div>
+                                <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots">Words in Context</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- btn.next -->
+                    <div class="centerT mt40">
+                        <button type="button" class="btn8 blue_btn3">Next</button>
+                    </div>
+                </div>
+                <!-------------------------------------------------->
+    
+                <!-- 5 R -- -------------------------------------->
+                <div class="floatR contR">
+                    <p class="input_title mb10">문제영역</p>
+                    <!---------- TOP: 등록한 문제 번호 조회 버튼 ---------->
+                    <div class="newQ_count cf">
+                        <select>
+                            <option value="">1/10</option>
+                            <option value="">2/10</option>
+                            <option value="">3/10</option>
+                            <option value="">4/10</option>
+                            <option value="">5/10</option>
+                        </select>
+                        <!-- -->
+                        <button type="button" class="btn9 blue_btn2 btn_add floatR font_14">New</button>
+                    </div>
+                    <!---------- BOTTOM : 문제 관련 정보 기입 ---------->
+                    <!-- 1. Question -->
+                    <div class="newQ_cont mt25 r_question">
+                        <p>Question<span class="orange_txt"> *</span></p>
+                        <div class="newQ_cont_inner">
+                            <!---------- 이미지 첨부구간 ---------->
+                            <div class="top cf">
+                                <label for="fileUpload" class="floatL pointer">
+                                    <img src="./img/icons/icon_imgUpload.png" alt="아이콘_이미지">
+                                </label>
+                                <input type="file" name="" class="inp-img" id="fileUpload" accept=".gif, .jpg, .png">
+                                <button type="button" class="floatR btn_imgDelete">삭제</button>
+                            </div>
+                            <!---------- 이미지 미리보기 + 글작성 ---------->
+                            <div class="bottom scroll_place">
+                                <div class="preview"></div>
+                                <label for="newQuestion">
+                                    <textarea id="newQuestion" name="newQuestion" rows="10"></textarea>	
+                                </label>
+                            </div>
+                            <!---------- 끝 ---------->
+                        </div>
+                    </div>
+    
+                    <!-- 2. Tagging -->
+                    <div class="newQ_cont mt25 r_tagging">
+                        <p>Tagging<span class="orange_txt"> *</span></p>
+                        <div class="newQ_cont_inner">
+                            <div class="inner_padding newQ_tagging">
+                                <p class="mb10">Selected Tagging</p>
+                                <p class="pnf">Purpose / Function</p>
+                                <form style="margin-top: 10px;" class="search_passage">
+                                        <label ><input type="text" placeholder="Search"></label>
+                                        <button type="button"><img src="./img/icons/icon_search.png" alt="아이콘_돋보기"></button>
+                                </form>
+                                <div class="scroll_place">
+                                    <form class="tag_category">
+                                        <ul>
+                                            <li class="tag_main">
+                                                <!-- main idea -->
+                                                <img src="./img/icons/triangle_down.png" alt="아이콘_역삼각형" class="pointer mr5 triangle_down">
+                                                <input type="checkbox" id="mainIdea">
+                                                <label for="mainIdea"><span></span>Information Ideas</label>
+                                                <!-- sub idea -->
+                                                <div class="tag_sub">
+                                                    <!-- 1 -->
+                                                    <div>
+                                                        <input type="checkbox" id="subIdea1">
+                                                        <label for="subIdea1"><span></span>Main Idea</label>
+                                                        <div class="tag_miniSub">
+                                                            <input type="checkbox" id="miniIdea1">
+                                                            <label for="miniIdea1"><span></span>mini Text</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 2  -->
+                                                    <div>
+                                                        <input type="checkbox" id="subIdea2">
+                                                        <label for="subIdea2"><span></span>Words in Context</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="tag_main">
+                                                <!-- main idea -->
+                                                <img src="./img/icons/triangle_down.png" alt="아이콘_역삼각형" class="pointer mr5 triangle_down">
+                                                <input type="checkbox" id="mainIdea2">
+                                                <label for="mainIdea2"><span></span>Information Ideas</label>
+                                                <!-- sub idea -->
+                                                <div class="tag_sub">
+                                                    <!-- 1 -->
+                                                    <div>
+                                                        <input type="checkbox" id="subIdea3">
+                                                        <label for="subIdea3"><span></span>Main Idea</label>
+                                                    </div>
+                                                    <!-- 2  -->
+                                                    <div>
+                                                        <input type="checkbox" id="subIdea4">
+                                                        <label for="subIdea4"><span></span>Words in Context</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- 3. Answer -->
+                    <div class="newQ_cont answer_list mt25">
+                        <p>Answer<span class="orange_txt"> *</span></p>
+                        <div>
+                            <form action="" name="answer_box">
+                                <!-- 보기 1번 -->
+                                <div class="answer_box cf">
+                                    <input type="radio" id="answerA" name="answer" value="answerA">
+                                    <label for="answerA"><span></span> A )</label>
+                                    <div class="floatR">
+                                        <div class="newQ_cont_inner">
+                                            <!---------- 이미지 첨부구간 ---------->
+                                            <div class="top cf">
+                                                <label for="fileUpload1" class="floatL pointer">
+                                                    <img src="./img/icons/icon_imgUpload.png" alt="아이콘_이미지">
+                                                </label>
+                                                <input type="file" name="" class="inp-img" id="fileUpload1" accept=".gif, .jpg, .png">
+                                                <button type="button" class="floatR btn_imgDelete">삭제</button>
+                                            </div>
+                                            <!---------- 이미지 미리보기 + 글작성 ---------->
+                                            <div class="bottom scroll_place">
+                                                <div class="preview"></div>
+                                                <label for="newQuestion">
+                                                    <textarea id="newQuestion" name="newQuestion" rows="10"></textarea>	
+                                                </label>
+                                            </div>
+                                            <!---------- 끝 ---------->
+                                        </div>
+                                        <select class="errorType">
+                                            <option value="#">Error Type</option>
+                                            <option value="#">Error Type</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+    
+                                <!-- 보기 2번 -->
+                                <div class="answer_box cf">
+                                    <input type="radio" id="answerB" name="answer" value="answerB">
+                                    <label for="answerB"><span></span> B )</label>
+                                    <div class="floatR">
+                                        <div class="newQ_cont_inner">
+                                            <!---------- 이미지 첨부구간 ---------->
+                                            <div class="top cf">
+                                                <label for="fileUpload2" class="floatL pointer">
+                                                    <img src="./img/icons/icon_imgUpload.png" alt="아이콘_이미지">
+                                                </label>
+                                                <input type="file" name="" class="inp-img" id="fileUpload2" accept=".gif, .jpg, .png">
+                                                <button type="button" class="floatR btn_imgDelete">삭제</button>
+                                            </div>
+                                            <!---------- 이미지 미리보기 + 글작성 ---------->
+                                            <div class="bottom scroll_place">
+                                                <div class="preview"></div>
+                                                <label for="newQuestion">
+                                                    <textarea id="newQuestion" name="newQuestion" rows="10"></textarea>	
+                                                </label>
+                                            </div>
+                                            <!---------- 끝 ---------->
+                                        </div>
+                                        <select class="errorType">
+                                            <option value="#">Error Type</option>
+                                            <option value="#">Error Type</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                                <!-- 보기 3번 -->
+                                <div class="answer_box cf">
+                                    <input type="radio" id="answerC" name="answer" value="answerC">
+                                    <label for="answerC"><span></span> C )</label>
+                                    <div class="floatR">
+                                        <div class="newQ_cont_inner">
+                                            <!---------- 이미지 첨부구간 ---------->
+                                            <div class="top cf">
+                                                <label for="fileUpload3" class="floatL pointer">
+                                                    <img src="./img/icons/icon_imgUpload.png" alt="아이콘_이미지">
+                                                </label>
+                                                <input type="file" name="" class="inp-img" id="fileUpload3" accept=".gif, .jpg, .png">
+                                                <button type="button" class="floatR btn_imgDelete">삭제</button>
+                                            </div>
+                                            <!---------- 이미지 미리보기 + 글작성 ---------->
+                                            <div class="bottom scroll_place">
+                                                <div class="preview"></div>
+                                                <label for="newQuestion">
+                                                    <textarea id="newQuestion" name="newQuestion" rows="10"></textarea>	
+                                                </label>
+                                            </div>
+                                            <!---------- 끝 ---------->
+                                        </div>
+                                        <select class="errorType">
+                                            <option value="#">Error Type</option>
+                                            <option value="#">Error Type</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                                <!-- 보기 4번 -->
+                                <div class="answer_box cf">
+                                    <input type="radio" id="answerD" name="answer" value="answerD">
+                                    <label for="answerD"><span></span> D )</label>
+                                    <div class="floatR">
+                                        <div class="newQ_cont_inner">
+                                            <!---------- 이미지 첨부구간 ---------->
+                                            <div class="top cf">
+                                                <label for="fileUpload4" class="floatL pointer">
+                                                    <img src="./img/icons/icon_imgUpload.png" alt="아이콘_이미지">
+                                                </label>
+                                                <input type="file" name="" class="inp-img" id="fileUpload4" accept=".gif, .jpg, .png">
+                                                <button type="button" class="floatR btn_imgDelete">삭제</button>
+                                            </div>
+                                            <!---------- 이미지 미리보기 + 글작성 ---------->
+                                            <div class="bottom scroll_place">
+                                                <div class="preview"></div>
+                                                <label for="newQuestion">
+                                                    <textarea id="newQuestion" name="newQuestion" rows="10"></textarea>	
+                                                </label>
+                                            </div>
+                                            <!---------- 끝 ---------->
+                                        </div>
+                                        <select class="errorType">
+                                            <option value="#">Error Type</option>
+                                            <option value="#">Error Type</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 4. Solution -->
+                    <div class="newQ_cont mt25">
+                        <!-- title -->
+                        <p class="input_title mb15">Solution<span class="orange_txt"> *</span></p>
+                        <!-- contents -->
+                        <div class="newPassage_box mb30">
+                            <form>
+                                <label for="newP_content">
+                                    <textarea id="newP_content" name="newP_content"></textarea>
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+    
+                    <!-- Btn.update -->
+                    <div class="centerT mt40">
+                        <button type="button" class="btn8 blue_btn3">Update</button>
+                    </div>
+                </div>
+                <!-------------------------------------------------->
+            </article>
+        </div>
+    </section>
+    
+</body>
+</html>

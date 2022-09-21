@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>AIMON_admin</title>
+		<link rel="shortcut icon" href="img/icons/AIMON.ico">
+		<link rel="icon" href="img/icons/AIMON.ico">
+		<link rel="stylesheet" href="css/common.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style2.css?ver=0.2"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 		jquery ui -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<script type="text/javascript" src="js/style.js"></script>
+	</head>
+<body>
+
+    <header>
+        <div class="sidebar gray_bg2">
+            <!--header top-->
+            <div class="header-top rightT white_txt fontL font_16 pointer">
+                <img src="img/icons/icon_profile.png" alt="아이콘_계정" class="mr10" style="vertical-align: bottom;">
+                Admin
+                <img src="img/icons/arrow_down.png" alt="화살표_아래" class="ml10" style="margin-left: 7.5px;">
+            </div>
+    
+            <!-- 계정 미니메뉴박스 -->
+            <div class="account_menu">
+                <p><a href="admin_changeUserInfo.html">비밀번호 변경</a></p>
+                <p><a href="signIn.html">로그아웃</a></p>
+            </div>
+    
+            <!--sidebar. nav-->
+            <ul class="nav">
+                <li><a href="index.html">Dashboard</a></li>
+                
+                <li class="dropdown_btn">SAT</li>
+                <div class="dropdown_container">
+                    <a href="sat_passagesList.html">Reading</a>
+                    <a href="#">Writing</a>
+                    <a href="sat_math_addPassage.html">Math</a>
+                </div>
+                
+                <li class="dropdown_btn">ACT</li>
+                <div class="dropdown_container">
+                    <a href="#">Reading</a>
+                    <a href="#">English</a>
+                    <a href="#">Math</a>
+                    <a href="#">Science</a>
+                </div>
+                
+                <li><a href="productList.html">Product</a></li>
+                <li><a href="promotionList.html">Promotion</a></li>
+                <li><a href="paymentList.html">Payment</a></li>
+                <li><a href="masterAccount_list.html">Master Account</a></li>
+                
+                <li class="dropdown_btn">Feedback</li>
+                <div class="dropdown_container">
+                    <a href="feedbackList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn">Member</li>
+                <div class="dropdown_container">
+                    <a href="memberList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn mt15">Admin</li>
+                <div class="dropdown_container">
+                    <a href="adminList.html">List</a>
+                    <a href="admin_create.html">Create</a>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <script>
+        $(document).ready(function(){
+            $("ul.nav li:nth-child(2)").addClass("nav_on");
+            $("ul.nav li:nth-child(2)").next(".dropdown_container").addClass("subnav_on");
+            $("ul.nav li:nth-child(2)").next(".dropdown_container").find("a:nth-child(3)").addClass("subnav_on2");
+        });
+    </script>
+    
+    <section class="container sat_addPassage sat_addPassage_pdf">
+        <!----- ROOT ----->
+        <ul class="root">
+            <li>SAT</li>
+            <li>Math</li>
+            <li>Add Passage</li>
+            <li>NORMAL MODE</li>
+        </ul>
+    
+        <div class="contents">
+            <!----- 최상단 : Btn wrap ----->
+            <div class="btn_wrap cf">
+                <a href="#" class="btn4 blue_btn2">PDF Mode</a>
+                <div class="floatR">
+                    <a href="#" class="btn2 gray_btn mr10">Delete</a>
+                    <a href="#" class="btn2 blue_btn">Preview</a>
+                </div>
+            </div>
+            
+            <!----- 본문 ----->
+            <article class="cf">
+                <!-- 1 : Question ID -->
+                <p class="input_title mb10">Question ID</p>
+                <form class="input_cont mb20">
+                    <label for="question_id">
+                        <input type="text" id="question_id">
+                    </label>
+                </form>
+                <!-- 2 : Title-->
+                <p class="input_title mb10">Title<span class="orange_txt"> *</span></p>
+                <form class="input_cont mb20">
+                    <label for="passage_title">
+                        <input type="text" id="passage_title">
+                    </label>
+                </form>
+                <!-- 3 : Direction -->
+                <p class="input_title mb10">Direction<span class="orange_txt"> *</span></p>
+                <form class="input_cont mb20">
+                    <label for="passage_direction">
+                        <input type="text" id="passage_direction">
+                    </label>
+                </form>
+                <!-- 4 : Blurb -->
+                <p class="input_title mb10">Blurb</p>
+                <form class="input_cont mb20">
+                    <label for="passage_blurb">
+                        <input type="text" id="passage_blurb">
+                    </label>
+                </form>
+                <!-- 5 L -- -------------------------------------->
+                <div class="floatL contL">
+                    <div class="newQ_cont answer_list cf">
+                        <!-- title -->
+                        <p class="floatL">Answer<span class="orange_txt"> *</span></p>
+                        <!-- btn.wrap -->
+                        <div class="floatR">
+                            <a href="./sat_math_addPassage.html" class="btn10 blue_btn2">Subjective</a>
+                            <a href="./sat_math_addPassage_mutiple.html" class="btn10 blue_btn ml10">Multiple Choice</a>
+                        </div>
+                        <br><br>
+                        <!-- contents -->
+                        <div class="mb30">
+                            <div class="mAnswer_sheet">
+                                <form>
+                                    <label for="math_answer1"><input type="text" id="math_answer1"></label>
+                                </form>																		
+                            </div>																			
+                            <div class="mAnswer_sheet">																			
+                                <form>																		
+                                    <label for="math_answer1"><input type="text" id="math_answer1"></label>
+                                </form>																		
+                            </div>																			
+                            <div class="mAnswer_sheet">																			
+                                <form>																		
+                                    <label for="math_answer1"><input type="text" id="math_answer1"></label>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- btn.update -->
+                        <div class="centerT mt40">
+                            <button type="button" class="btn8 blue_btn3">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------------------------->
+    
+                <!-- 5 R -- -------------------------------------->
+                <div class="floatR contR">
+                    <p class="input_title mb10">문제영역</p>
+                    <!----- TOP : 등록한 문제 번호 조회 버튼 ----->
+                    <div class="newQ_count cf">
+                        <select>
+                            <option value="">1/10</option>
+                            <option value="">2/10</option>
+                            <option value="">3/10</option>
+                            <option value="">4/10</option>
+                            <option value="">5/10</option>
+                        </select>
+                        <!-- -->
+                        <button type="button" class="btn9 blue_btn2 btn_add floatR font_14">NEW</button>
+                    </div>
+                    <!----- BOTTOM : 문제 관련 정보 기입 ----->
+                    <!-- 1. Question -->
+                    <div class="newQ_cont mt25 r_question">
+                        <p>Question<span class="orange_txt"> *</span></p>
+                        <div class="newQ_cont_inner">
+                            <!---------- 이미지 첨부구간 ---------->
+                            <div class="top cf">
+                                <label for="fileUpload" class="floatL pointer">
+                                    <img src="./img/icons/icon_imgUpload.png" alt="아이콘_이미지">
+                                </label>
+                                <input type="file" name="" class="inp-img" id="fileUpload" accept=".gif, .jpg, .png">
+                                <button type="button" class="floatR btn_imgDelete">삭제</button>
+                            </div>
+                            <!---------- 이미지 미리보기 + 글작성 ---------->
+                            <div class="bottom scroll_place">
+                                <div class="preview"></div>
+                                <form>
+                                    <label for="newQuestion">
+                                        <textarea id="newQuestion" name="newQuestion" rows="25"></textarea>	
+                                    </label>
+                                </form>
+                            </div>
+                            <!---------- 끝 ---------->
+                        </div>
+                    </div>
+    
+                    <!-- 2. Tagging -->
+                    <div class="newQ_cont mt25 r_tagging">
+                        <p>Tagging<span class="orange_txt"> *</span></p>
+                        <div class="newQ_cont_inner">
+                            <div class="inner_padding newQ_tagging">
+                                <p class="mb10">Selected Tagging</p>
+                                <p class="pnf">Purpose / Function</p>
+                                <div class="scroll_place">
+                                    <form class="search_passage">
+                                        <label><input type="text" placeholder="Search passage..."></label>
+                                        <button type="button"><img src="./img/icons/icon_search.png" alt="아이콘_돋보기"></button>
+                                    </form>
+                                    <form class="tag_category">
+                                        <ul>
+                                            <li class="tag_main">
+                                                <!-- main idea -->
+                                                <img src="./img/icons/triangle_down.png" alt="아이콘_역삼각형" class="pointer mr5 triangle_down">
+                                                <input type="checkbox" id="all1" class="chk_all" name="all_chk">
+                                                <label for="all1"><span></span>Information Ideas</label>
+                                                <!-- sub idea -->
+                                                <div class="tag_sub tag_sub1">
+                                                    <!-- 1 -->
+                                                    <div>
+                                                        <input type="checkbox" id="subIdea1" name="all_chk">
+                                                        <label for="subIdea1"><span></span>Main Idea</label>
+                                                        <div class="tag_miniSub">
+                                                            <input type="checkbox" id="miniIdea1">
+                                                            <label for="miniIdea1"><span></span>mini Text</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 2  -->
+                                                    <div>
+                                                        <input type="checkbox" id="subIdea2" name="all_chk">
+                                                        <label for="subIdea2"><span></span>Words in Context</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 3. Btn.update -->
+                    <div class="centerT mt40">
+                        <button type="button" class="btn8 blue_btn3">Update</button>
+                    </div>
+                </div>
+                <!-------------------------------------------------->
+            </article>
+        </div>
+    </section>
+    
+    
+</body>
+</html>

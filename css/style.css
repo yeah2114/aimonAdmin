@@ -1,0 +1,578 @@
+/******************** common ********************/
+.form_style {
+  padding: 45px 50px !important;
+  background-color: #f2f2f2;
+  border: 1px solid #b1b1b1;
+}
+input,
+textarea {
+  width: 100%;
+}
+.input_title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+}
+.input_cont label {
+  display: block;
+  padding: 12px 15px;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: #fff;
+  border: 1px solid #b1b1b1;
+}
+
+/***** SAT > reading > passages > list *****/
+.sat_tab {
+  display: table;
+  border-collapse: collapse;
+}
+.sat_tab a {
+  display: table-cell;
+  width: 200px;
+  line-height: 40px;
+  border: 1px solid #b1b1b1;
+  border-bottom: none;
+  background-color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #999999;
+}
+
+/*탭메뉴 클릭했을때*/
+a.satTab_on {
+  background-color: #f2f2f2;
+  color: #333;
+}
+.search {
+  display: inline-block;
+  width: 490px;
+  padding: 12px 15px;
+}
+.sat_passages article {
+  border-top: 1px solid #b1b1b1;
+}
+.passages_list {
+  padding: 0 10px;
+}
+
+/*input.search*/
+.search {
+  width: 400px;
+  height: 40px;
+  padding: 10px 20px;
+  border: 1px solid #b1b1b1;
+  background-color: #fff;
+  position: relative;
+}
+.search .icon_search {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.admin_pagination {
+  display: block;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0;
+}
+.admin_pagination a {
+  font-size: 14px;
+  font-weight: 300;
+  color: #212529;
+  width: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.admin_pagination a:first-child,
+.admin_pagination a:last-child {
+  margin: 0 15px;
+}
+a.pagination_on {
+  background-color: #4285f4;
+  color: #fff;
+}
+
+/***** SAT > reading > passages > add passage *****/
+.sat_addPassage .btn_wrap {
+  padding: 0 0 10px;
+  border-bottom: 1px solid #b1b1b1;
+} /*최상단 버튼3개 묶음*/
+.sat_addPassage article {
+  padding-top: 35px;
+}
+.contL,
+.contR {
+  width: calc(50% - 13px);
+}
+
+/*newPassage_지문영역*/
+.newPassage_box {
+  border: 1px solid #b1b1b1;
+  height: 560px;
+} /*글작성 에디터 전체*/
+.newPassage_box.shortH {
+  height: 260px;
+}
+.newP_upload {
+  padding: 15px;
+  border-bottom: 1px solid #b1b1b1;
+  max-height: 45px;
+} /*에디터 툴박스*/
+.newP_cont {
+  height: 512px;
+  padding: 20px;
+} /*에디터 글작성란*/
+
+/*newQusetion_문제영역*/
+/*등록한 문제 번호 조회 버튼*/
+.newQ_count {
+  padding: 5px 0;
+  max-height: 40px;
+} /*listCound & btn.new 있는 wrap*/
+.newQ_count select {
+  padding: 7.5px 62px;
+  color: #333;
+  border: 1px solid #b1b1b1;
+  font-size: 10px;
+  font-weight: bold;
+  background: url(../img/icons/arrow_down_b.png) right 10px center no-repeat;
+}
+/*Question*/
+.newQ_cont > p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+} /*컨텐츠 제목*/
+.r_question .top input {
+  display: none;
+}
+.r_question .bottom {
+  height: 150px;
+  overflow: auto;
+}
+textarea#newQuestion {
+  overflow-y: hidden;
+}
+.r_question .bottom.longH {
+  height: 280px;
+}
+/*Tagging - purpose and function*/
+.pnf {
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #b1b1b1;
+}
+/*Tagging - scroll_place*/
+.scroll_place {
+  width: 100%;
+  height: 120px;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+  margin-top: 10px;
+}
+.scroll_place::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+.scroll_place::-webkit-scrollbar-thumb {
+  background-color: #2393f2;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.scroll_place::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+/*Tagging - search passage*/
+.search_passage {
+  display: block;
+  padding: 11px 15px;
+  border: 1px solid #b1b1b1;
+  margin-bottom: 10px;
+  position: relative;
+}
+.search_passage button {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+/*Tagging - tag_category*/
+.tag_main input[type="checkbox"] + label {
+  display: contents;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+.tag_main input[type="checkbox"] + label span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid #b1b1b1;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.tag_main input[type="checkbox"]:checked + label span {
+  background-color: #2393f2;
+  border-color: #2393f2;
+}
+.tag_sub {
+  padding-left: 35px;
+}
+.tag_miniSub {
+  padding-left: 35px !important;
+}
+.tag_sub > div {
+  margin-top: 5px;
+}
+.tag_sub > div:last-child {
+  margin-bottom: 10px;
+}
+
+/*Answer box 답변영역*/
+.newQ_cont_inner {
+  border: 1px solid #b1b1b1;
+} /*a,b,c,d 각각의 박스 테두리*/
+.newQ_cont_inner .top {
+  border-bottom: 1px solid #b1b1b1;
+  padding: 9px 15px;
+} /*박스 중 위의 박스 아래경계선*/
+.newQ_cont_inner .bottom {
+  padding: 15px 20px;
+}
+.newQ_cont_inner .inner_padding {
+  padding: 20px;
+}
+.answer_box {
+  margin-bottom: 20px;
+} /*a,b,c,d 각각의 박스간 간격*/
+.answer_box:last-child {
+  margin-bottom: 0;
+}
+.answer_box > div {
+  width: calc(100% - 70px);
+} /*각각의 박스 영역*/
+.answer_box input[type="checkbox"] {
+  display: none;
+} /*답변 체크영역*/
+.answer_box .scroll_place {
+  height: 69px;
+  margin-top: 0;
+}
+input[type="radio"] + label span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #707070;
+  background-color: #fff;
+  margin-right: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+input[type="radio"]:checked + label span::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333333;
+}
+input[type="checkbox"] + label {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #b1b1b1;
+}
+input[type="checkbox"]:checked + label {
+  border-color: #2393f2;
+  background-color: #2393f2;
+}
+.errorType {
+  width: 100%;
+  padding: 7px 20px;
+  background: url(../img/icons/arrow_down_b.png) right 10px center no-repeat;
+  border: 1px solid #b1b1b1;
+  margin-top: 5px;
+}
+.answer_box .top input {
+  display: none;
+}
+
+/***** SAT > reading > Tagging *****/
+.sat_tagging article {
+  border-top: 1px solid #b1b1b1;
+}
+.sat_tagging .contents > div {
+  width: 33.33%;
+}
+.tag_cont {
+  border-right: 1px solid #b1b1b1;
+}
+.theme_cont {
+  border-left: 1px solid #b1b1b1;
+}
+.tag_cont {
+  padding-right: 40px;
+}
+.error_cont {
+  padding: 0 40px 0 40px;
+}
+.theme_cont {
+  padding-left: 40px;
+}
+
+/*Error Type*/
+.delete_box {
+  border: 1px solid #b1b1b1;
+  background-color: #f2f2f2;
+  padding: 8px 15.5px 7px 10px;
+  position: relative;
+}
+.delete_box input {
+  width: 160px;
+  height: 30px;
+  padding: 5px 23px;
+  border: 1px solid #b1b1b1;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  margin-left: 30px;
+}
+.update_box {
+  margin-bottom: 25px;
+}
+.icon_arrow,
+.icon_plus {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*Tagging*/
+.mainIdea,
+.subIdea > div {
+  border: 1px solid #b1b1b1;
+  padding: 10px 10px 10px 34px;
+  margin-top: 10px;
+  position: relative;
+  font-weight: 400;
+  color: #333;
+  line-height: 20px;
+}
+
+.mainIdea {
+  font-size: 16px;
+}
+.three_dots {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.checkBox input[type="checkbox"] + label {
+  background: #33445b;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #33445b;
+  cursor: pointer;
+  text-align: center;
+}
+.checkBox input[type="checkbox"]:checked + label:before {
+  content: "\2714";
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+.subIdea {
+  padding-left: 34px;
+}
+.subIdea > div {
+  font-size: 14px;
+}
+.miniIdea {
+  margin-left: 34px !important;
+  border: 1px solid #b1b1b1;
+  padding: 10px 10px 10px 34px;
+  margin-top: 10px;
+  position: relative;
+}
+/*update박스 small*/
+.update_nobg {
+  padding-right: 0;
+}
+.update_nobg form {
+  /* width: calc(100% - 140px); */
+}
+.update_nobg form input {
+  width: 205px;
+  padding: 5px 10px;
+}
+
+.middleAdd,
+.miniAdd {
+  display: none;
+}
+.middleAdd.on,
+.miniAdd.on {
+  display: block;
+}
+
+.subInput {
+  width: 170px !important;
+}
+.upInput {
+  width: 75%;
+}
+.update_input {
+  border: 1px solid #b1b1b1;
+  margin-bottom: 20px;
+  width: 70%;
+}
+/*update박스 big*/
+.h40 input,
+.h40 button {
+  height: 40px;
+  line-height: 40px;
+  margin-left: 0;
+}
+.btnEvent {
+  display: none;
+}
+.btnEvent.active {
+  display: block;
+}
+/*Passage Theme*/
+.btn_theme {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #33445b;
+  color: #fff;
+  position: relative;
+  margin-left: 5px;
+}
+.btn_theme img {
+  margin-top: -4px;
+}
+.btn_theme img.icon_check {
+  margin-top: -2px;
+}
+/*.btn_theme img{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)}
+.btn_theme img.icon_check {position: static; transform: none;}*/
+.vertical_top {
+  vertical-align: top;
+}
+
+/***** SAT > reading > concept *****/
+.sat_concept article {
+  border-top: 1px solid #b1b1b1;
+  padding-top: 40px;
+}
+.sat_concept .input_cont {
+  margin-bottom: 30px;
+}
+.category > div {
+  width: calc(33.33% - 20px);
+}
+.category select {
+  width: 100%;
+  border: 1px solid #b1b1b1;
+  padding: 12px 15px;
+  margin-bottom: 30px;
+  background: url(../img/icons/arrow_down_b.png) right 10px center no-repeat;
+  background-color: #fff;
+}
+.concept_passage {
+  padding: 0 10px 0 20px;
+}
+.concept_passage_item {
+  border: 1px solid #b1b1b1;
+  background-color: #f2f2f2;
+  padding: 14px 20px 14px 35px;
+  position: relative;
+}
+.concept_passage_item img {
+  position: absolute;
+  top: 25px;
+  left: 18px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.concept_passage_item textarea {
+  background-color: #fff;
+  border: 1px solid #b1b1b1;
+  height: 110px;
+}
+
+/***** SAT > math > add passage (NORMAL MODE) *****/
+.mAnswer_sheet {
+  margin-bottom: 10px;
+}
+.mAnswer_sheet label {
+  display: block;
+  padding: 12px 15px;
+  background-color: #fff;
+  border: 1px solid #b1b1b1;
+}
+
+/***** Master Account > list *****/
+.form_area.masterAccount_list {
+  margin-bottom: 60px;
+} /*조건설정 박스 밑 여백값*/
+.form_area .label_double input {
+  width: calc(50% - 120px);
+} /*라벨이 2개일때*/
+.form_area .label_double .txt_range {
+  width: 10px;
+  margin: 0 30px;
+  padding-left: 0 !important;
+} /*라벨이 2개일때, 가운데 ~표시*/
+
+/***** Master Account > create *****/
+.address_select {
+  padding-left: 160px;
+}
+.width3 {
+  width: calc(33.33% - 10px) !important;
+}
+
+/***** Master Account > edit *****/
+.input_withBtn input {
+  width: calc(100% - 310px) !important;
+}
+
+.confirmBtn {
+  background: #2393fd;
+  color: #fff;
+  padding: 16.4px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.confirmBtn:hover {
+  background: #1571c7;
+}
+.emailInput {
+  width: 80% !important;
+}
+
+.emailInput2 {
+  width: 79.9% !important;
+}

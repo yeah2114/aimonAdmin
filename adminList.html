@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>AIMON_admin</title>
+		<link rel="shortcut icon" href="img/icons/AIMON.ico">
+		<link rel="icon" href="img/icons/AIMON.ico">
+		<link rel="stylesheet" href="css/common.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style2.css?ver=0.2"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 		jquery ui -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<script type="text/javascript" src="js/style.js"></script>
+	</head>
+<body>
+
+    <header>
+        <div class="sidebar gray_bg2">
+            <!--header top-->
+            <div class="header-top rightT white_txt fontL font_16 pointer">
+                <img src="img/icons/icon_profile.png" alt="아이콘_계정" class="mr10" style="vertical-align: bottom;">
+                Admin
+                <img src="img/icons/arrow_down.png" alt="화살표_아래" class="ml10" style="margin-left: 7.5px;">
+            </div>
+    
+            <!-- 계정 미니메뉴박스 -->
+            <div class="account_menu">
+                <p><a href="admin_changeUserInfo.html">비밀번호 변경</a></p>
+                <p><a href="signIn.html">로그아웃</a></p>
+            </div>
+    
+            <!--sidebar. nav-->
+            <ul class="nav">
+                <li><a href="index.html">Dashboard</a></li>
+                
+                <li class="dropdown_btn">SAT</li>
+                <div class="dropdown_container">
+                    <a href="sat_passagesList.html">Reading</a>
+                    <a href="#">Writing</a>
+                    <a href="sat_math_addPassage.html">Math</a>
+                </div>
+                
+                <li class="dropdown_btn">ACT</li>
+                <div class="dropdown_container">
+                    <a href="#">Reading</a>
+                    <a href="#">English</a>
+                    <a href="#">Math</a>
+                    <a href="#">Science</a>
+                </div>
+                
+                <li><a href="productList.html">Product</a></li>
+                <li><a href="promotionList.html">Promotion</a></li>
+                <li><a href="paymentList.html">Payment</a></li>
+                <li><a href="masterAccount_list.html">Master Account</a></li>
+                
+                <li class="dropdown_btn">Feedback</li>
+                <div class="dropdown_container">
+                    <a href="feedbackList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn">Member</li>
+                <div class="dropdown_container">
+                    <a href="memberList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn mt15">Admin</li>
+                <div class="dropdown_container">
+                    <a href="adminList.html">List</a>
+                    <a href="admin_create.html">Create</a>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <section class="container">
+		<ul class="root ">
+			<li>Admin List</li>
+		</ul>
+        
+		<div class="contents admin_list">
+			<!----- 상단 ----->
+			<div class="cf">
+				<select class="listCount mr10">
+					<option value="10">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
+				View
+				<form class="floatR">
+					<label for="search" class="search floatL">
+						<input type="text" placeholder="Search" id="search">
+						<button class="icon_search"><img src="./img/icons/icon_search.png" alt="아이콘_돋보기"></button>
+					</label>
+					<a href="./admin_create.html" class="btn4 blue_btn ml10">Create</a>
+				</form>
+			</div>
+			<!----- 하단 : 테이블 ----->
+			<table class="center_table">
+				<colgroup>
+					<col width="70px">
+					<col width="*">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+					<col width="*">
+					<col width="13%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Level</th>
+						<th>권한</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Create Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="admin_open pointer">
+						<td>10</td>
+						<td>81</td>
+						<td>Jay Kim</a></td>
+						<td>Admin</td>
+						<td class="authority"><a href="javascript:;" class=" btn7 blue_btn">Yes</a></td>
+						<td>010-2604-9331</td>
+						<td>jay.kim@ai-mon.com </td>
+						<td>2021-06-25 15:45</td>
+					</tr>
+					<tr class="admin_open pointer">
+						<td>10</td>
+						<td>81</td>
+						<td>Jay Kim</td>
+						<td>Admin</td>
+						<td class="authority"><a href="javascript:;" class="admin_open btn7 blue_btn2">No</a></td>
+						<td>010-2604-9331</td>
+						<td>jay.kim@ai-mon.com </td>
+						<td>2021-06-25 15:45</td>
+					</tr>
+				</tbody>
+			</table>
+			<!----- 테이블 관련 안내사항 ----->
+			<p class="font_14 fontR gray_txt ml10">Refund can be claimed until the test is taken.</p>
+			<!----- pagination ----->
+			<div class="admin_pagination">
+				<a href="#">이전</a>
+				<a href="#" class="pagination_on">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">다음</a>
+			</div>
+		</div>
+	</section>
+
+	
+	<div class="pop_wrap admin_info">
+		<div class="pop_bg"></div>
+		<div class="pop_cont">
+			<div class="pop_top cf">
+				<h1 class="floatL">Administrator Information</h1>
+			</div>
+			<div class="pop_contents">
+				<form action="#">
+					<ul class="form_area cf">
+						<li class="w100">
+							<label for="userID">ID</label>
+							<input type="text" id="userID">
+						</li>
+						<li class="w100">
+							<label for="userPW">Password</label>
+							<!--<input type="text" id="userPW">-->
+							<button type="button" class="btn_pwReset">Password Reset</button>
+						</li>
+						<li class="w100">
+							<label for="userName">Name</label>
+							<input type="text" id="userName">
+						</li>
+						<li class="w100">
+							<label for="userNum">Phone</label>
+							<input type="text" id="userID">
+						</li>
+						<li class="w100">
+							<label for="userEmail">Email</label>
+							<input type="text" id="userEmail">
+						</li>
+						<li class="w100">
+							<label>수정권한</label>
+							<input type="radio" id="authority01" name="authority">
+							<label for="authority01"><span></span>권한 있음</label>
+							<input type="radio" id="authority02" name="authority">
+							<label for="authority02" style="margin-left: 60px"><span></span>권한 없음</label>
+						</li>
+					</ul>
+				</form>
+			</div>
+			<div class="btn_wrap centerT">
+				<button type="button" class="btn2 blue_btn2 mr10">Delete</button>
+				<button type="button" class="btn2 gray_btn2 mr10 pop_close" id="pop_close">Cancel</button>
+				<button type="button" class="btn2 blue_btn">Update</button>
+			</div>
+		</div>	
+	</div>
+
+    <script>
+        $(document).ready(function(){
+            $("ul.nav li:nth-child(14)").addClass("nav_on");
+            $("ul.nav li:nth-child(14)").next(".dropdown_container").addClass("subnav_on");
+            $("ul.nav li:nth-child(14)").next(".dropdown_container").find("a:nth-child(1)").addClass("subnav_on2");
+        });
+    </script>
+    
+    
+</body>
+</html>

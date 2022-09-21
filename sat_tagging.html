@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>AIMON_admin</title>
+		<link rel="shortcut icon" href="img/icons/AIMON.ico">
+		<link rel="icon" href="img/icons/AIMON.ico">
+		<link rel="stylesheet" href="css/common.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style.css?ver=0.2"/>
+		<link rel="stylesheet" href="css/style2.css?ver=0.2"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 		jquery ui -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<script type="text/javascript" src="js/style.js"></script>
+	</head>
+<body>
+
+    <header>
+        <div class="sidebar gray_bg2">
+            <!--header top-->
+            <div class="header-top rightT white_txt fontL font_16 pointer">
+                <img src="img/icons/icon_profile.png" alt="아이콘_계정" class="mr10" style="vertical-align: bottom;">
+                Admin
+                <img src="img/icons/arrow_down.png" alt="화살표_아래" class="ml10" style="margin-left: 7.5px;">
+            </div>
+    
+            <!-- 계정 미니메뉴박스 -->
+            <div class="account_menu">
+                <p><a href="admin_changeUserInfo.html">비밀번호 변경</a></p>
+                <p><a href="signIn.html">로그아웃</a></p>
+            </div>
+    
+            <!--sidebar. nav-->
+            <ul class="nav">
+                <li><a href="index.html">Dashboard</a></li>
+                
+                <li class="dropdown_btn">SAT</li>
+                <div class="dropdown_container">
+                    <a href="sat_passagesList.html">Reading</a>
+                    <a href="#">Writing</a>
+                    <a href="sat_math_addPassage.html">Math</a>
+                </div>
+                
+                <li class="dropdown_btn">ACT</li>
+                <div class="dropdown_container">
+                    <a href="#">Reading</a>
+                    <a href="#">English</a>
+                    <a href="#">Math</a>
+                    <a href="#">Science</a>
+                </div>
+                
+                <li><a href="productList.html">Product</a></li>
+                <li><a href="promotionList.html">Promotion</a></li>
+                <li><a href="paymentList.html">Payment</a></li>
+                <li><a href="masterAccount_list.html">Master Account</a></li>
+                
+                <li class="dropdown_btn">Feedback</li>
+                <div class="dropdown_container">
+                    <a href="feedbackList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn">Member</li>
+                <div class="dropdown_container">
+                    <a href="memberList.html">List</a>
+                </div>
+                
+                <li class="dropdown_btn mt15">Admin</li>
+                <div class="dropdown_container">
+                    <a href="adminList.html">List</a>
+                    <a href="admin_create.html">Create</a>
+                </div>
+            </ul>
+        </div>
+    </header>
+    
+
+    <script>
+        $(document).ready(function(){
+            $("ul.nav li:nth-child(2)").addClass("nav_on");
+            $("ul.nav li:nth-child(2)").next(".dropdown_container").addClass("subnav_on");
+            $("ul.nav li:nth-child(2)").next(".dropdown_container").find("a:nth-child(1)").addClass("subnav_on2");
+        });
+    </script>
+    
+    <section class="container sat_tagging">
+        <div class="sat_tab">
+            <a href="./sat_passagesList.html">Passages</a>
+            <a href="./sat_tagging.html" class="satTab_on">Tagging</a>
+            <a href="./sat_concept.html">Concept</a>
+        </div>
+    
+        <article>
+        <div class="contents passages_list cf">
+            <!---------- Tagging : START ---------->
+            <div class="tag_cont floatL">
+                <p class="input_title mb20">Tagging</p>
+                <ul>
+                    <!-- update : mainIdea -->
+                    <li class="mt20">
+                        <div class=" update_nobg h40 no_bg cf">
+                            <form class="floatL update_input"><input type="text" placeholder="대분류"></form>
+                            <button class="floatR bigBtn btn11 blue_btn font_15">Update</button>
+                        </div>
+                    </li>
+                    <!-- 1 -->
+                    <li class="mb20">
+                        <div class="mainIdea cf">
+                            <img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                            <div class="floatR btnEvent">
+                                <button class="btn_theme tagC"><img src="./img/icons/icon_check_w.png" alt="아이콘체크" class="icon_check"></button>
+                                <button class='btn_theme tagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                            </div>
+                        </div>
+                        <article class='delete_box update_nobg pl20 no_bg cf middleAdd'>
+                            <img src='./img/icons/icon_plus_inCircle.png' alt='아이콘_추가' class='floatL icon_plus pointer'>
+                            <form class='floatL'><input class='subInput' type='text' placeholder='중분류'></form>
+                            <div class='floatR'><button class='btn9 middleBtn blue_btn'>Up</button> <button class='middleDel btn9 blue_btn2'>Del</button></div>
+                        </article>
+
+                        <div class="subIdea">
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <article class='delete_box update_nobg pl20 no_bg cf miniAdd'>
+                                <img src='./img/icons/icon_plus_inCircle.png' alt='아이콘_추가' class='floatL icon_plus pointer'>
+                                <form class='floatL'><input class='subInput' type='text' placeholder='소분류'></form>
+                                <section class='floatR'><button class='btn9 miniBtn blue_btn'>Up</button> <button class='miniDel btn9 blue_btn2'>Del</button></section>
+                            </article>
+                            <section>
+                                <article class="miniIdea"><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                    <section class="floatR btnEvent">
+                                        <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                        <button class='btn_theme subTagD'>D</button>
+                                    </section>
+                                </article>
+                            </section>
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <article class='delete_box update_nobg pl20 no_bg cf miniAdd'>
+                                <img src='./img/icons/icon_plus_inCircle.png' alt='아이콘_추가' class='floatL icon_plus pointer'>
+                                <form class='floatL'><input class='subInput' type='text' placeholder='소분류'></form>
+                                <section class='floatR'><button class='btn9 miniBtn blue_btn'>Up</button> <button class='miniDel btn9 blue_btn2'>Del</button></section>
+                            </article>
+                            <section></section>
+
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+            <!---------- Tagging : END ---------->
+    
+    
+    
+            <!---------- Error Type : START ---------->
+            <div class="error_cont floatL">
+                <p class="input_title mb20">Error Type</p>
+                <!-- delate -->
+                 <!-- UPDATE -->
+                <div class="delete_box update_box cf">
+                    <img src="./img/icons/icon_plus_inCircle.png" alt="아이콘_추가" class="floatL icon_plus pointer">
+                    <form class="floatL"><input type="text"></form>
+                    <button class="floatR btn9 blue_btn font_13 errorBtn">Update</button>
+                </div>               
+                <!-- 1 -->
+                <ul class="errorDrag">
+                    <li>
+                        <div class="delete_box cf">
+                            <img src="./img/icons/arrow.png" alt="아이콘_화살표" class="floatL icon_arrow pointer">
+                            <form class="floatL"><input type="text" value="Fiction1" disabled></form>
+                            <button class="floatR btn12 errorDel blue_btn2">Del</button>
+                            <button class="floatR blue_btn btn12 tagUpBtn" style="margin-right: 5px;">Up</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="delete_box cf">
+                            <img src="./img/icons/arrow.png" alt="아이콘_화살표" class="floatL icon_arrow pointer">
+                            <form class="floatL"><input type="text" value="Fiction2" disabled></form>
+                            <button class="floatR btn12 errorDel blue_btn2">Del</button>
+                            <button class="floatR blue_btn btn12 tagUpBtn" style="margin-right: 5px;">Up</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="delete_box cf">
+                            <img src="./img/icons/arrow.png" alt="아이콘_화살표" class="floatL icon_arrow pointer">
+                            <form class="floatL"><input type="text" value="Fiction3" disabled></form>
+                            <button class="floatR btn12 errorDel blue_btn2">Del</button>
+                            <button class="floatR blue_btn btn12 tagUpBtn" style="margin-right: 5px;">Up</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!---------- Error Type : END ---------->
+    
+      
+    
+            <!---------- Passage Theme : START ---------->
+            <div class="theme_cont floatL">
+                <p class="input_title mb20">Passage Theme</p>
+                <ul>
+                    <!-- update : mainIdea -->
+                    <li class="mt20">
+                        <div class="update_nobg h40 no_bg cf">
+                            <form class="floatL update_input"><input type="text" placeholder="대분류"></form>
+                            <button class="floatR btn11 blue_btn bigBtn font_15">Update</button>
+                        </div>
+                    </li>
+                    <!-- 1 -->
+                    <li class="mb20">
+                        <div class="mainIdea cf">
+                            <img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                            <div class="floatR btnEvent">
+                                <button class="btn_theme tagC"><img src="./img/icons/icon_check_w.png" alt="아이콘체크" class="icon_check"></button>
+                                <button class='btn_theme tagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                            </div>
+                        </div>
+
+                        <div class="subIdea">
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <section>
+                                <article class="miniIdea"><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                    <section class="floatR btnEvent">
+                                        <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                        <button class='btn_theme subTagD'>D</button>
+                                    </section>
+                                </article>
+                            </section>
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <section></section>
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <section></section>
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <section></section>
+                            <div><img src="./img/icons/three_dots.png" alt="점3개" class="three_dots"><input class="upInput" type="text">
+                                <section class="floatR btnEvent">
+                                    <button class='btn_theme'><img src='./img/icons/icon_check_w.png' alt='아이콘_체크' class='icon_check'></button>
+                                    <button class='btn_theme subTagP'><img src='./img/icons/icon_plus_w.png' alt='아이콘_추가' class='vertical_top'></button>
+                                    <button class='btn_theme subTagD'>D</button>
+                                </section>
+                            </div>
+                            <section></section>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!---------- Passage Theme : END ---------->
+            </div>
+        </article>
+    
+    </section>
+</body>
+</html>
